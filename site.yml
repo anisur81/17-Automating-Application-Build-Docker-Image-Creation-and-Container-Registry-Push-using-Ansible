@@ -1,0 +1,9 @@
+- hosts: buildserver
+  connection: local
+  become: true
+  become_method: sudo
+
+  roles:
+    - build
+    - docker
+    - push
