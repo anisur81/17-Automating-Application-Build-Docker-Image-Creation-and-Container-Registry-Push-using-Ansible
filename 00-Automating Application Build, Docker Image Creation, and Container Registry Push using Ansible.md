@@ -159,7 +159,8 @@ touch files/Dockerfile
 ```
 
 
-Step: Create ansible.cfg
+## Step: Create ansible.cfg
+
 ```
 [defaults]
 inventory=inventory
@@ -168,7 +169,8 @@ retry_files_enabled=False
 roles_path=roles
 stdout_callback=yaml	
 ```
-Create Inventory hosts.ini file 
+
+## Create Inventory hosts.ini file 
 
 under inventory folder
 
@@ -178,7 +180,7 @@ localhost ansible_connection=local
 
 ```
 
-Step 7: Create site.yml
+## Step 7: Create site.yml
 
 ```
 - hosts: buildserver
@@ -191,9 +193,8 @@ Step 7: Create site.yml
 
 ```
 
-Step 8: Create group_vars/all.yml
+## Step 8: Create group_vars/all.yml
 ```
-
 project_name: nodejs-apps
 
 docker_image: nodejs-apps
@@ -210,7 +211,7 @@ project_path: "{{ playbook_dir }}/nodejsapp"
 ```
 
 
-create the file for Build Role :  
+## create the file for Build Role :  
 
 roles/build/tasks/main.yml
 
@@ -286,7 +287,7 @@ localhost | SUCCESS => {
 
 ```
 
-Step 12: Run the Project
+## Step 12: Run the Project
 ansible-playbook site.yml	--ask-become-pass
 
 ```
