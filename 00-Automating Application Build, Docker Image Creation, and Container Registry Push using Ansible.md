@@ -287,11 +287,8 @@ localhost | SUCCESS => {
 
 ```
 
-## Step 12: Run the Project
-ansible-playbook site.yml	--ask-become-pass
-
+## Step 12: Finally run the ansible ci pipeline command
 ```
-## Finally run the ansible ci pipeline command
 root@jaspertestsvr:/opt/ansible# ansible-playbook site.yml        --ask-become-pass
 BECOME password:
 
