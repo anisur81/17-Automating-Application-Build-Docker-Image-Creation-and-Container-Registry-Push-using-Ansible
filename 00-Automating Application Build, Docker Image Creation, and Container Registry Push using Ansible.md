@@ -4,6 +4,7 @@
 
 
 ## Project Architecture:
+
 ```
 
                               +----------------------+
@@ -194,6 +195,7 @@ localhost ansible_connection=local
 ```
 
 ## Step 8: Create group_vars/all.yml
+
 ```
 project_name: nodejs-apps
 
@@ -226,9 +228,11 @@ roles/build/tasks/main.yml
   ansible.builtin.command: npm run build
   args:
     chdir: "{{ project_path }}"
-	```
+
+```
 
 ## Step 10: Docker Role
+
 ```
 - name: Build Docker Image
   community.docker.docker_image:
@@ -256,6 +260,7 @@ roles/build/tasks/main.yml
 ```
 
 ## Install  Ansible
+
 ```
 sudo apt install -y ansible-core
 ansible --version
@@ -284,35 +289,28 @@ localhost | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
-
 ```
 
 ## Step 12: Finally run the ansible ci pipeline command
+
 ```
 root@jaspertestsvr:/opt/ansible# ansible-playbook site.yml        --ask-become-pass
-BECOME password:
 
+BECOME password:
 PLAY [buildserver] *********************************************************************************************************************************
 
 TASK [Gathering Facts] *****************************************************************************************************************************
-[WARNING]: Host 'localhost' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
 ok: [localhost]
-
 TASK [build : Install Node.js dependencies] ********************************************************************************************************
 changed: [localhost]
-
 TASK [docker : Build Docker Image] *****************************************************************************************************************
 ok: [localhost]
-
 TASK [push : Login Docker Hub] *********************************************************************************************************************
 ok: [localhost]
-
 TASK [push : Push Image] ***************************************************************************************************************************
 changed: [localhost]
-
 PLAY RECAP *****************************************************************************************************************************************
 localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
 ```
 
 
