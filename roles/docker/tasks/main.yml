@@ -1,0 +1,7 @@
+- name: Build Docker Image
+  community.docker.docker_image:
+    name: "{{ docker_username }}/{{ docker_image }}"
+    tag: "{{ docker_tag }}"
+    source: build
+    build:
+      path: "{{project_path}}"

@@ -1,0 +1,4 @@
+- name: Install Node.js dependencies
+  ansible.builtin.command: npm install
+  args:
+    chdir: "{{ project_path }}"

@@ -1,0 +1,11 @@
+- name: Login Docker Hub
+  community.docker.docker_login:
+    username: "{{ docker_username }}"
+    password: "{{ docker_password }}"
+
+- name: Push Image
+  community.docker.docker_image:
+    name: "{{ docker_username }}/{{ docker_image }}"
+    tag: "{{ docker_tag }}"
+    push: yes
+    source: local
