@@ -228,7 +228,7 @@ roles/build/tasks/main.yml
     chdir: "{{ project_path }}"
 	```
 
-Step 10: Docker Role
+## Step 10: Docker Role
 ```
 - name: Build Docker Image
   community.docker.docker_image:
@@ -239,7 +239,7 @@ Step 10: Docker Role
       path: /opt/project
 ```	  
 
-Step 11: Push Role
+## Step 11: Push Role
 ```
 - name: Login Docker Hub
   community.docker.docker_login:
@@ -274,7 +274,7 @@ ansible-galaxy collection list
 
 ```
 
-Now Ansible will automatically use your ansible.cfg.
+## Now Ansible will automatically use your ansible.cfg.
 ```
 administrator@WIN-RJ32TRRFOFP:~/projects/ansible$ ansible -i inventory/hosts.ini buildserver -m ping
 localhost | SUCCESS => {
@@ -291,6 +291,7 @@ localhost | SUCCESS => {
 ansible-playbook site.yml	--ask-become-pass
 
 ```
+## Finally run the ansible ci pipeline command
 root@jaspertestsvr:/opt/ansible# ansible-playbook site.yml        --ask-become-pass
 BECOME password:
 
